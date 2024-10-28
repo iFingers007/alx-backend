@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Module for 0. Simple helper function"""
 
-# from Typing import Tuple
 
 def index_range(page: int, page_size: int) -> tuple:
     """ Returns range of a page
