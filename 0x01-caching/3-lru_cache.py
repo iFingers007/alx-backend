@@ -29,9 +29,11 @@ class LRUCache(BaseCaching):
 
     def get(self, key):
         """returns value linked to key"""
-        if key in self.cache_data:
-            item = self.cahe_data.pop(key)
-            self.cache_data[key] = item
-            return item
-        return None
+        if key is None or key not in self.cache_data:
+            return None
+        value = self.cahe_data[key]
+        del self.order[key]
+        self.order[key] = value
+
+        return value
 
