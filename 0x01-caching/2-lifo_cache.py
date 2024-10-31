@@ -1,31 +1,32 @@
 #!/usr/bin/env python3
-"""LIFOCache Module
+""" LIFOCache module
 """
 
 from base_caching import BaseCaching
 
-
 class LIFOCache(BaseCaching):
-    """Defines a caching system with LIFO algorithm
+    """ LIFOCache defines a caching system with LIFO algorithm
     """
     def __init__(self):
-        """Initialising of the class"""
+        """ Initialize LIFOCache
+        """
         super().__init__()
         self.keys = []
 
     def put(self, key, item):
-        """assign to the dictionary self.cache_data the item value for the key
+        """ Add an item to the cache
         """
         if key is not None and item is not None:
             if key in self.cache_data:
                 self.keys.remove(key)
             elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-                popped_key, _ = self.keys.pop()
-                print(f"DISCARD: {popped_key}")
-                del self.cache_data[popped_key]
+                discarded_key = self.keys.pop()
+                print(f"DISCARD: {discarded_key}")
+                del self.cache_data[discarded_key]
             self.keys.append(key)
             self.cache_data[key] = item
 
     def get(self, key):
-        """returns value linked to key"""
+        """ Get an item from the cache
+        """
         return self.cache_data.get(key)
