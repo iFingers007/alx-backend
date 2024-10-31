@@ -4,6 +4,7 @@
 
 from base_caching import BaseCaching
 
+
 class LIFOCache(BaseCaching):
     """ LIFOCache defines a caching system with LIFO algorithm
     """
