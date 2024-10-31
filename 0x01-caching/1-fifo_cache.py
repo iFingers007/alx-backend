@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""FIFOcache Module
+""" FIFOCache module
 """
 
 from base_caching import BaseCaching
 from collections import OrderedDict
 
-
 class FIFOCache(BaseCaching):
-    """Defines a caching system with FIFO algorithm
+    """ FIFOCache defines a caching system with FIFO algorithm
     """
     def __init__(self):
-        """Initialising of the class"""
+        """ Initialize FIFOCache
+        """
         super().__init__()
-        self.cached_data = OrderedDict()
+        self.cache_data = OrderedDict()
 
     def put(self, key, item):
-        """assign to the dictionary self.cache_data the item value for the key
+        """ Add an item to the cache
         """
         if key is not None and item is not None:
             if key in self.cache_data:
@@ -26,5 +26,6 @@ class FIFOCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """returns value linked to key"""
+        """ Get an item from the cache
+        """
         return self.cache_data.get(key)
